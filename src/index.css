@@ -1,0 +1,496 @@
+/* ==========================================================================
+   ARQUICASA — SISTEMA DE DISEÑO ARQUITECTÓNICO & MONOLÍTICO
+   Dirección de Arte: Monolithic Structural Precision & Urban Minimalism
+   Modo Cromático: Contrast-Hybrid (Bloques Caliza #F6F6F4 y Basalto #121417)
+   ========================================================================== */
+
+:root {
+  /* Paleta Base Arquitectónica Extraída de la Marca Real */
+  --bg-primary: #F6F6F4;
+  --bg-secondary: #EAEAE6;
+  --bg-dark: #121417;
+  --bg-dark-surface: #1B1E22;
+  --bg-dark-card: #15181C;
+
+  --text-primary: #121417;
+  --text-muted: #4E5459;
+  --text-light: #F6F7F8;
+  --text-light-muted: #8E949A;
+
+  --accent-gold: #C5A059;
+  --accent-gold-hover: #D8B46D;
+  --accent-gold-soft: rgba(197, 160, 89, 0.12);
+
+  --hairline-light: rgba(18, 20, 23, 0.12);
+  --hairline-dark: rgba(246, 247, 248, 0.14);
+  --hairline-gold: rgba(197, 160, 89, 0.35);
+
+  /* Rigidez Estructural Fiel al Monograma del Logo: 0px / 2px */
+  --radius-sharp: 0px;
+  --radius-subtle: 2px;
+
+  /* Tipografías Oficiales */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Retícula & Espaciado */
+  --container-max: 1360px;
+  --header-height: 72px;
+}
+
+/* Reset Técnico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Tipografía de Precisión */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: inherit;
+}
+
+p {
+  color: var(--text-muted);
+  font-size: 1.025rem;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Clases de Tipografía */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Layout & Contenedores */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
+}
+
+.container-full {
+  width: 100%;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* Hairlines Arquitectónicos (Divisores Finos de 1px) */
+.border-hairline {
+  border: 1px solid var(--hairline-light);
+}
+
+.border-b-hairline {
+  border-bottom: 1px solid var(--hairline-light);
+}
+
+.border-t-hairline {
+  border-top: 1px solid var(--hairline-light);
+}
+
+.border-l-hairline {
+  border-left: 1px solid var(--hairline-light);
+}
+
+.border-r-hairline {
+  border-right: 1px solid var(--hairline-light);
+}
+
+.border-dark-hairline {
+  border: 1px solid var(--hairline-dark);
+}
+
+.border-b-dark {
+  border-bottom: 1px solid var(--hairline-dark);
+}
+
+.border-t-dark {
+  border-top: 1px solid var(--hairline-dark);
+}
+
+.border-l-dark {
+  border-left: 1px solid var(--hairline-dark);
+}
+
+.border-r-dark {
+  border-right: 1px solid var(--hairline-dark);
+}
+
+/* Temas de Sección (Contrast-Hybrid) */
+.section-light {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.section-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.section-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.section-dark p {
+  color: var(--text-light-muted);
+}
+
+/* Botones Arquitectónicos Nítidos (Cero Bordes Redondeados Bubbly) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: var(--text-primary);
+  color: var(--text-light);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-sharp);
+  border: 1px solid var(--text-primary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background-color: var(--bg-dark-surface);
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: #FFFFFF;
+  color: var(--bg-dark);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-sharp);
+  border: 1px solid #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-dark:hover {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--bg-dark);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-sharp);
+  border: 1px solid var(--hairline-light);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-primary);
+  background-color: rgba(18, 20, 23, 0.03);
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: transparent;
+  color: var(--text-light);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-sharp);
+  border: 1px solid var(--hairline-dark);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-dark:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Micro-etiquetas Técnicas (Rotulados CAD) */
+.cad-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.section-dark .cad-label {
+  color: var(--text-light-muted);
+}
+
+.cad-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--hairline-light);
+  background: rgba(18, 20, 23, 0.02);
+}
+
+.section-dark .cad-badge {
+  border-color: var(--hairline-dark);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-light);
+}
+
+/* Tablas Técnicas / Data Sheets */
+.dossier-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dossier-table tr {
+  border-bottom: 1px solid var(--hairline-light);
+}
+
+.section-dark .dossier-table tr {
+  border-bottom: 1px solid var(--hairline-dark);
+}
+
+.dossier-table td {
+  padding: 0.9rem 0;
+  font-size: 0.9rem;
+}
+
+.dossier-table td:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: 38%;
+}
+
+.section-dark .dossier-table td:first-child {
+  color: var(--text-light-muted);
+}
+
+.dossier-table td:last-child {
+  font-weight: 500;
+  color: inherit;
+  text-align: right;
+}
+
+/* Grid System Esencial */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Navegación Fija */
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 100;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-scrolled {
+  background-color: rgba(18, 20, 23, 0.92);
+  border-bottom: 1px solid var(--hairline-dark);
+}
+
+/* Utilidades Flex & Spacing */
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.gap-3 { gap: 0.75rem; }
+.gap-8 { gap: 2rem; }
+
+.md-flex {
+  display: none !important;
+}
+
+.md-hide {
+  display: inline-flex !important;
+}
+
+.md-justify-end {
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  .md-flex {
+    display: flex !important;
+  }
+  .md-hide {
+    display: none !important;
+  }
+  .md-justify-end {
+    justify-content: flex-end !important;
+  }
+}
+
+/* Efectos de Imagen Arquitectónica */
+.arch-img-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.arch-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-img-frame:hover img {
+  transform: scale(1.03);
+}
+
+/* Mega Wordmark Footer */
+.mega-wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 13vw, 11rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: rgba(246, 247, 248, 0.08);
+  user-select: none;
+  pointer-events: none;
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Scrollbar Minimalista */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121417;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
